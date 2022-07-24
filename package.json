@@ -1,0 +1,16 @@
+{
+  "name": "crawler-camp-mineiro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "fs": "^0.0.1-security",
+    "lint": "^0.7.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
