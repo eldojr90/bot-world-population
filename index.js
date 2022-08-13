@@ -1,17 +1,17 @@
-const request = require('request-promise').defaults({ jar: true });
+const { get } = require('axios');
 const cheerio = require('cheerio');
 const {estimate, getWorldPop} = require('./world.pop');
 
 const uri =
   'https://populationmatters.org/population-numbers?gclid=CjwKCAjwnZaVBhA6EiwAVVyv9GUkq1yurVjXe042wt7NVzhwvG3c2Ir7HpwE-rNx0IOK9VMIaOVG6BoCaxwQAvD_BwE';
 
-const config = {
-  uri,
-  transform: (body) => cheerio.load(body),
+const getConfig = async () => {
+  const {data} = await get(uri);
+  return cheerio.load(data);
 };
 
 const getCurrentWorldPopulation = async () => {
-  const $ = await request(config);
+  const $ = await getConfig();
   const body = $('body').html();
   const worldPop = getWorldPop();
   const diffTo8Bi = new Intl.NumberFormat('pt-BR').format(

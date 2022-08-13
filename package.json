@@ -7,10 +7,14 @@
     "dev": "nodemon index"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "cheerio": "^1.0.0-rc.10",
     "fs": "^0.0.1-security",
     "lint": "^0.7.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
   }
 }
